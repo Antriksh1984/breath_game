@@ -35,8 +35,8 @@ class BreathingSession {
   bool _isActive = false;
   bool _isInhaling = true;
   int _currentCycle = 0;
-  int _totalCycles = 5;
-  int _sessionDuration = 120; // 2 minutes for rocket missions
+  final int _totalCycles = 5;
+  final int _sessionDuration = 120; // 2 minutes for rocket missions
   int _remainingTime = 120;
 
   bool get isActive => _isActive;
@@ -124,7 +124,7 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
   int _holdTimeSeconds = 0;
   
   // Mission records for leaderboard
-  List<MissionRecord> _missionRecords = [];
+  final List<MissionRecord> _missionRecords = [];
   
   // Phase limits
   final int _maxFuelTime = 10; // 10 seconds = 100% fuel
@@ -460,18 +460,18 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
       context: context,
       builder: (context) => AlertDialog(
         backgroundColor: const Color(0xFF0B0B1A),
-        title: Row(
+        title: const Row(
           children: [
             Icon(Icons.leaderboard, color: Colors.purple),
             SizedBox(width: 8),
             Text('Mission Records', style: TextStyle(color: Colors.white)),
           ],
         ),
-        content: Container(
+        content: SizedBox(
           width: double.maxFinite,
           height: 400,
           child: _missionRecords.isEmpty
-              ? Center(
+              ? const Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -490,14 +490,14 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
                       child: ListTile(
                         leading: CircleAvatar(
                           backgroundColor: Colors.purple,
-                          child: Text('${index + 1}', style: TextStyle(color: Colors.white)),
+                          child: Text('${index + 1}', style: const TextStyle(color: Colors.white)),
                         ),
-                        title: Text('Mission ${record.missionNumber}', style: TextStyle(color: Colors.white)),
+                        title: Text('Mission ${record.missionNumber}', style: const TextStyle(color: Colors.white)),
                         subtitle: Text(
                           'Fuel: ${record.fuelPercentage.toInt()}% • Hold: ${record.holdTimeSeconds}s • Distance: ${record.distanceKm.toInt()}km',
-                          style: TextStyle(color: Colors.white70),
+                          style: const TextStyle(color: Colors.white70),
                         ),
-                        trailing: Text(record.formattedDate, style: TextStyle(color: Colors.white54)),
+                        trailing: Text(record.formattedDate, style: const TextStyle(color: Colors.white54)),
                       ),
                     );
                   },
@@ -506,7 +506,7 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('Close', style: TextStyle(color: Colors.purple)),
+            child: const Text('Close', style: TextStyle(color: Colors.purple)),
           ),
         ],
       ),
@@ -589,7 +589,7 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
             children: [
               Icon(Icons.rocket_launch, color: _currentPrimaryColor, size: 28),
               const SizedBox(width: 12),
-              Text(
+              const Text(
                 'Rocket Breathing',
                 style: TextStyle(
                   color: Colors.white,
@@ -610,12 +610,12 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
           if (_session.isActive) ...[
             Text(
               '${(_session.remainingTime ~/ 60).toString().padLeft(2, '0')}:${(_session.remainingTime % 60).toString().padLeft(2, '0')}',
-              style: TextStyle(color: Colors.white70, fontSize: 20, fontWeight: FontWeight.w300),
+              style: const TextStyle(color: Colors.white70, fontSize: 20, fontWeight: FontWeight.w300),
             ),
             const SizedBox(height: 5),
             Text(
               'Mission ${_session.currentCycle + 1} of ${_session.totalCycles}',
-              style: TextStyle(color: Colors.white54, fontSize: 14, letterSpacing: 0.5),
+              style: const TextStyle(color: Colors.white54, fontSize: 14, letterSpacing: 0.5),
             ),
           ],
         ],
@@ -650,8 +650,8 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
         children: [
           Icon(icon, color: _currentPrimaryColor, size: 16),
           const SizedBox(height: 4),
-          Text(label, style: TextStyle(color: Colors.white70, fontSize: 12)),
-          Text(value, style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
+          Text(label, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+          Text(value, style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -701,7 +701,7 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
                       const SizedBox(height: 8),
                       Text(
                         _phaseTitle,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w400,
@@ -712,7 +712,7 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
                       const SizedBox(height: 4),
                       Text(
                         _phaseInstruction,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white70,
                           fontSize: 14,
                           letterSpacing: 0.5,
@@ -788,7 +788,7 @@ class _BreathingGameScreenState extends State<BreathingGameScreen>
               ),
             ),
             const SizedBox(height: 20),
-            Text(
+            const Text(
               'Hold & Release to Control',
               style: TextStyle(color: Colors.white70, fontSize: 16, letterSpacing: 0.5),
             ),

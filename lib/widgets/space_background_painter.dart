@@ -102,7 +102,7 @@ class SpaceBackgroundPainter extends CustomPainter {
           ..color = color.withOpacity(0.08)
           ..style = PaintingStyle.stroke
           ..strokeWidth = 2.0
-          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 3.0);
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3.0);
         
         canvas.drawPath(path, armPaint);
       }

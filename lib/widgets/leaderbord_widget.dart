@@ -39,10 +39,10 @@ class LeaderboardWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
+                const Row(
                   children: [
                     Icon(Icons.leaderboard, color: Colors.purple, size: 28),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12),
                     Text(
                       'Mission Records',
                       style: TextStyle(
@@ -56,7 +56,7 @@ class LeaderboardWidget extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () => Navigator.pop(context),
-                  icon: Icon(Icons.close, color: Colors.white70),
+                  icon: const Icon(Icons.close, color: Colors.white70),
                 ),
               ],
             ),
@@ -110,7 +110,7 @@ class LeaderboardWidget extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           value,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
@@ -118,7 +118,7 @@ class LeaderboardWidget extends StatelessWidget {
         ),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white70,
             fontSize: 12,
           ),
@@ -132,13 +132,13 @@ class LeaderboardWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.rocket_launch_outlined,
             size: 64,
             color: Colors.white30,
           ),
           const SizedBox(height: 16),
-          Text(
+          const Text(
             'No missions completed yet',
             style: TextStyle(
               color: Colors.white70,
@@ -231,7 +231,7 @@ class LeaderboardWidget extends StatelessWidget {
                 ],
               ),
             );
-          }).toList(),
+          }),
         ],
       ),
     );
@@ -240,7 +240,7 @@ class LeaderboardWidget extends StatelessWidget {
   Widget _buildHeaderCell(String text) {
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.white,
         fontSize: 14,
         fontWeight: FontWeight.bold,
@@ -289,7 +289,7 @@ class LeaderboardWidget extends StatelessWidget {
   Widget _buildDataCell(String text) {
     return Text(
       text,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.white70,
         fontSize: 13,
       ),

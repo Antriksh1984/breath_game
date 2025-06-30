@@ -88,7 +88,7 @@ class RocketPainter extends CustomPainter {
   void _drawFuelGauge(Canvas canvas, Size size) {
     final gaugeCenter = Offset(size.width * 0.15, size.height * 0.3);
     final gaugeHeight = size.height * 0.4;
-    final gaugeWidth = 30.0;
+    const gaugeWidth = 30.0;
     
     // Gauge background
     final gaugeBg = Paint()
@@ -149,7 +149,7 @@ class RocketPainter extends CustomPainter {
     final textPainter = TextPainter(
       text: TextSpan(
         text: 'FUEL\n${(fuelLevel * 100).toInt()}%',
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 10,
           fontWeight: FontWeight.bold,
@@ -171,7 +171,7 @@ class RocketPainter extends CustomPainter {
   void _drawDistanceMeter(Canvas canvas, Size size) {
     final meterCenter = Offset(size.width * 0.85, size.height * 0.3);
     final meterHeight = size.height * 0.4;
-    final meterWidth = 30.0;
+    const meterWidth = 30.0;
     
     // Meter background
     final meterBg = Paint()
@@ -233,7 +233,7 @@ class RocketPainter extends CustomPainter {
     final distanceText = TextPainter(
       text: TextSpan(
         text: 'DIST\n${distanceKm}km',
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
           fontSize: 10,
           fontWeight: FontWeight.bold,
@@ -376,7 +376,7 @@ class RocketPainter extends CustomPainter {
         3 - (i * 0.3),
         Paint()
           ..color = Colors.orange.withOpacity(0.7 - i * 0.08)
-          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 2),
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2),
       );
     }
   }
@@ -385,7 +385,7 @@ class RocketPainter extends CustomPainter {
     // Fuel injection effects
     for (int i = 0; i < 6; i++) {
       final angle = (i * math.pi * 2) / 6;
-      final effectDistance = 80;
+      const effectDistance = 80;
       final effectCenter = Offset(
         center.dx + effectDistance * math.cos(angle),
         center.dy + effectDistance * math.sin(angle),
@@ -393,7 +393,7 @@ class RocketPainter extends CustomPainter {
       
       final effectPaint = Paint()
         ..color = primaryColor.withOpacity(0.6 * fuelLevel)
-        ..maskFilter = MaskFilter.blur(BlurStyle.normal, 3);
+        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
       
       canvas.drawCircle(effectCenter, 4 * fuelLevel, effectPaint);
       
@@ -404,7 +404,7 @@ class RocketPainter extends CustomPainter {
         Paint()
           ..color = primaryColor.withOpacity(0.4 * fuelLevel)
           ..strokeWidth = 2
-          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 1),
+          ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 1),
       );
     }
   }
